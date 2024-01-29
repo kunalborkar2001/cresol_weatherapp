@@ -1,0 +1,62 @@
+
+
+.card {
+    margin-top: 3vh;
+    border: solid black 1px;
+    min-width: 200px;
+    padding: 10px;
+    flex-wrap: wrap;
+    font-family: 'Single Day', cursive;
+    
+}
+
+ .loading img{
+    height: 50px;
+    width: 50px;
+}
+
+
+
+input {
+    min-width: 300px;
+    height: 50px;
+    border-radius: 12px 0 0 12px;
+}
+
+button {
+    height: 56px;
+    border-radius: 0 12px 12px 0;
+    width: 80px;
+}
+
+.card img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+}
+.details {
+    display: flex;
+    align-items: center;
+    
+}
+
+.details .right {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12%;
+    align-items: center;
+    line-height: 15px;
+}
+
+
+ul {
+    list-style: none;
+}
+
+.degree {
+    color: rgb(207, 28, 97);
+}
+
+.down {
+    
+}
