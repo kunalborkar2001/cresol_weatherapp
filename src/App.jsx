@@ -1,5 +1,5 @@
 import './App.css'
-import Card from './Components/Card/Card'
+import Weather from './Components/Weather/Weather'
 
 function App() {
   
@@ -7,7 +7,7 @@ function App() {
   return (
     <>
     <div className='app'>
-      <Card />
+      <Weather />
 
     </div>
     </>
