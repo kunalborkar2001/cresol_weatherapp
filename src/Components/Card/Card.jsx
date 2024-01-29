@@ -1,6 +1,6 @@
 import "./Card.css"
 
-const Card = ({error,name, region, country,temprature, lastUpdated, icon, pressure, condition, windSpeed}) => {
+const Card = ({error,name, region, country,temprature, humidity, icon, pressure, condition, windSpeed}) => {
     return (
         <div className='card'>
             {error ? (
@@ -20,7 +20,7 @@ const Card = ({error,name, region, country,temprature, lastUpdated, icon, pressu
                     </div>
                     <div className='down'>
                         <div>
-                            <p>Last Updated : {lastUpdated}</p>
+                            <p>Humidity : {humidity}</p>
                             <p>Condition : {condition}</p>
                         </div>
                         <div>

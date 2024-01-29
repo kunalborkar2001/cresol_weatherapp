@@ -45,14 +45,14 @@ const Weather = () => {
                             region={weatherData.location.region}
                             country={weatherData.location.country}
                             temperature={weatherData.current.temp_c}
-                            lastUpdated={weatherData.current.last_updated}
+                            humidity={weatherData.current.humidity}
                             icon={weatherData.current.condition.icon}
                             pressure={weatherData.current.pressure_in}
                             condition={weatherData.current.condition.text}
                             windSpeed={weatherData.current.wind_kph}
                         />
                     ) : (
-                        <p>Enter Location to see the details</p>
+                        <h1 style={{fontSize : "32px", borderRadius : "12px"}}>Enter Location to see the details</h1>
                     )
                 )}
             </div>
