@@ -10,27 +10,37 @@ const Weather = () => {
     const [error, setError] = useState('');
 
     let fetchWeatherData = async (location) => {
-        try {
-            setGettingData(true);
-            let data = await weatherDetails(location);
+        if (location.length > 0) {
+            try {
+                setGettingData(true);
+                let data = await weatherDetails(location);
 
-            if (data) {
-                setWeatherData(data);
-                setError('');
-            } else {
-                throw new Error("Weather data not available");
+                if (data) {
+                    setWeatherData(data);
+                    setError('');
+                } else {
+                    throw new Error("Weather data not available");
+                }
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setGettingData(false);
             }
-        } catch (error) {
-            setError(error.message);
-        } finally {
-            setGettingData(false);
         }
     }
 
     return (
-        <div>
-            <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder='Enter Location Here...' required />
-            <button type='submit' onClick={() => fetchWeatherData(location)}>Search</button>
+        <div className='content'>
+            <div className='inputs' typeof='submit'>
+                <form id="weatherForm" onSubmit={(e) => {
+                    e.preventDefault();
+                    fetchWeatherData(location);
+                }}>
+                    <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder='Enter Location Here...' required />
+                    <button type='submit'>Search</button>
+                </form>
+            </div>
+
 
             <div className='cardData'>
                 {gettingData ? (
@@ -52,12 +62,14 @@ const Weather = () => {
                             windSpeed={weatherData.current.wind_kph}
                         />
                     ) : (
-                        <h1 style={{fontSize : "32px", borderRadius : "12px"}}>Enter Location to see the details</h1>
+                        <div className='suggestion'>
+                            <h1 style={{ fontSize: "32px", borderRadius: "12px" }}>Enter Location <br /> to see the weather ⛈️ details</h1>
+                        </div>
                     )
                 )}
             </div>
         </div>
     );
 }
-   
+
 export default Weather;
